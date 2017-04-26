@@ -25,7 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func postData() {
         var request = URLRequest(url: URL(string: "http://localhost:4567/post_id")!)
         let email = "user@company.com"
+        
+        // test for db record insert (no matching email)
         let fcm_id = "b1_D2qKfFdM:APA91bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR76WC1-8GH1cgrCdjDIt7BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8fjg-y"
+        
+        // test for db record update (match on email)
+        // let fcm_id = "k7_J3mLuQaC:SYH72aIMsA9blZX7hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR76WC1-8GH1cgrCdjDIt7BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8fjg-y"
+        
         let postString = "email=\(email)&fcm_id=\(fcm_id)"
         request.httpMethod = "POST"
         request.httpBody = postString.data(using: .utf8)

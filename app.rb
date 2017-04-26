@@ -1,8 +1,10 @@
 require 'sinatra'
 require_relative 'ios_post_ops.rb'
 
+# Route to list all entries in database for easier review when app is hosted on Heroku
 get "/" do
-  erb :start
+  records = get_data()
+  erb :list_records, locals: {records: records}
 end
 
 # Route to output post data from iOS app to text file (use for testing/troubleshooting)

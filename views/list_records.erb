@@ -1,0 +1,16 @@
+<!-- basic table to list all records in database to confirm inserts/updates working on Heroku -->
+
+<table>
+  <tr>
+    <td>Database ID</td>
+    <td>Email Address</td>
+    <td>Firebase Token</td>
+  </tr>
+  <% records.each do |record_hash| %>
+  <tr>
+    <td><%= record_hash["id"] %></td>
+    <td><%= record_hash["email"] %></td>
+    <td><%= record_hash["fcm_id"] %></td>
+  </tr>
+  <% end %>
+</table>
