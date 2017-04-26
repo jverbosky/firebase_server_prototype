@@ -16,9 +16,10 @@ def write_db(id_hash)
   db.results_as_hash  # determine current max index (id) in details table
   max_id = db.execute('select max("id") from tokens')[0][0]
   max_id == nil ? id = 1 : id = max_id + 1  # set index variable based on current max index value
-  instance_id = id_hash["instance_id"]  # prepare data from user_hash for database insert
-  db.execute('insert into tokens (id, instance_id)
-              values(?, ?)', [id, instance_id])
+  fcm_id = id_hash["fcm_id"]  # prepare data from user_hash for database insert
+  email = id_hash["email"]
+  db.execute('insert into tokens (id, fcm_id, email)
+              values(?, ?)', [id, fcm_id, email)
 end
 
 # Method to update existing record for device

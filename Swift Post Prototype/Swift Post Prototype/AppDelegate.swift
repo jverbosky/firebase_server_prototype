@@ -24,8 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func postData() {
         var request = URLRequest(url: URL(string: "http://localhost:4567/post_id")!)
-        let postString = "id=1a2b3c4d5e"
-        // let postString = "id=1a2b3c4d5e&email=user@company.com"
+        let fcm_id = "1a2b3c4d5e"
+        let email = "user@company.com"
+        let postString = "fcm_id=\(fcm_id)&email=\(email)"
         request.httpMethod = "POST"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
