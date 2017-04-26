@@ -1,6 +1,5 @@
 require 'sinatra'
-# require_relative 'sqlite_ops.rb'
-require_relative 'output_file.rb'
+require_relative 'ios_post_ops.rb'
 
 # class FirebaseServerPrototypeApp < Sinatra::Base
 
@@ -8,22 +7,19 @@ require_relative 'output_file.rb'
     erb :start
   end
 
-  # Route to handle post from iOS app
-  post '/post_id' do
-    user_hash = {"fcm_id"=>params[:fcm_id], "email"=>params[:email]}
-    write_file(user_hash)  # save user_hash to a file
-    "Post successful - thanks for the info!"
-  end
-
+  # Route to output post data from iOS app to text file (use for testing/troubleshooting)
   # post '/post_id' do
-  #   id_hash = params[:hash]  # assign the user hash to the user_hash variable
-  #   # "Got it: #{params}"  # testing - validate the contents of user_hash (user_name only)
-  #   write_json(id_hash)  # save user_hash to a new JSON file (delete & re-create if already present)
-  #   # backend_name = user_hash["user_name"]  # get user_name from hash for listing in get_age.erb
-  #   # "Thanks for the info: #{backend_name}"
-  #   # erb :get_id, locals: {id_hash: id_hash}
+  #   id_hash = {"email"=>params[:email], "fcm_id"=>params[:fcm_id]}
+  #   write_file(id_hash)  # save user_hash to a file
+  #   "Post successful - thanks for the info!"
   # end
 
+  # Route to insert post data from iOS app into SQLite database (pre-production)
+  post '/post_id' do
+    id_hash = {"email"=>params[:email], "fcm_id"=>params[:fcm_id]}
+    write_db(id_hash)  # save user_hash to a file
+    "Post successful - thanks for the info!"
+  end
 
   # post '/post_id' do
   #   id = params[:id]
