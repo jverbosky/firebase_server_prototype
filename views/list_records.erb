@@ -1,16 +1,31 @@
-<!-- basic table to list all records in database to confirm inserts/updates working on Heroku -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Firebase IDs</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/images/favicon.ico?" type="image/x-icon">
+  </head>
 
-<table>
-  <tr>
-    <td>Database ID</td>
-    <td>Email Address</td>
-    <td>Firebase Token</td>
-  </tr>
-  <% records.each do |record_hash| %>
-  <tr>
-    <td><%= record_hash["id"] %></td>
-    <td><%= record_hash["email"] %></td>
-    <td><%= record_hash["fcm_id"] %></td>
-  </tr>
-  <% end %>
-</table>
+  <body>
+
+    <!-- basic table to list all records in database to confirm inserts/updates working on Heroku -->
+
+    <table>
+      <t>
+        <td class="header">ID</td>
+        <td class="header">Email</td>
+        <td class="header">Firebase Token</td>
+      </tr>
+      <% records.each do |record_hash| %>
+      <tr>
+        <td><%= record_hash["id"] %></td>
+        <td><%= record_hash["email"] %></td>
+        <td><%= record_hash["fcm_id"] %></td>
+      </tr>
+      <% end %>
+    </table>
+
+  </body>
+
+</html>

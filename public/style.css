@@ -1,0 +1,23 @@
+body {
+  background-color: #c4d5ef;
+  font-family: Verdana, Geneva, sans-serif;
+  color: #000000;
+}
+
+table {
+  outline: 1px solid #000000;
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #a7c4ef;
+}
+
+td {
+  padding: 8px;
+}
+
+.header {
+  background-color: #7aa6e8;
+  font-weight: bold;
+}
