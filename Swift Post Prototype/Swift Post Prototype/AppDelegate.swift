@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func postData() {
-        // var request = URLRequest(url: URL(string: "http://localhost:4567/post_id")!)
-        var request = URLRequest(url: URL(string: "http://192.168.77.77:4567/post_id")!)
+        // var request = URLRequest(url: URL(string: "http://localhost:4567/post_id")!)  // test to same computer
+        // var request = URLRequest(url: URL(string: "http://192.168.77.77:4567/post_id")!)  // test to different computer on local network
+        var request = URLRequest(url: URL(string: "https://ios-post-proto-jv.herokuapp.com/post_id")!)  // test to Heroku-hosted app
         let email = "mentor@ios_app.com"
         
         // test for db record insert (no matching email)
