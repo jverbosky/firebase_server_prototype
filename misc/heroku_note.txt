@@ -1,0 +1,4 @@
+https://ios-post-proto-jv.herokuapp.com/
+
+SQLite3 not supported by Heroku
+- have to redo ios_post_ops w/PostgreSQL and setup PostgreSQL db on AWS

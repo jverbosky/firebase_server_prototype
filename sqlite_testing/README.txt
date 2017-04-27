@@ -1,0 +1,1 @@
+Did initial testing with SQLite db for testing, however Heroku doesn't support SQLite so next phase involves using PostgreSQL db.
