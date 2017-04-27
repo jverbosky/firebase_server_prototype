@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // var request = URLRequest(url: URL(string: "http://localhost:4567/post_id")!)  // test to same computer
         // var request = URLRequest(url: URL(string: "http://192.168.77.77:4567/post_id")!)  // test to different computer on local network
         var request = URLRequest(url: URL(string: "https://ios-post-proto-jv.herokuapp.com/post_id")!)  // test to Heroku-hosted app
-        let email = "mentor@ios_app.com"
+        // let email = "mentor@ios_app.com"
+        let email = "mig@ghi.com"  // test update email with no Firebase token
         
         // test for db record insert (no matching email)
         let fcm_id = "b1_D2qKfFdM:APA91bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR76WC1-8GH1cgrCdjDIt7BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8fjg-y"
