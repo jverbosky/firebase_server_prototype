@@ -24,6 +24,7 @@ def drop_table()
     conn.exec "create table tokens (
                id int primary key,
                email varchar(100),
+               pne_status varchar(1),
                fcm_id varchar(180))"
 
   rescue PG::Error => e
@@ -38,3 +39,5 @@ def drop_table()
   end
 
 end
+
+drop_table()

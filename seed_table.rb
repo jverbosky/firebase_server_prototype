@@ -8,10 +8,10 @@ def seed_table()
   begin
 
     # fcm_id data sets
-    entry_1 = ["mag@abc.com", "b1_D2qKfFdM:APA91bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR76WC1-8GH1cgrCdjDIt7BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8fjg-y"]
-    entry_2 = ["meg@def.com", "c0_N1zLfFdM:APA32bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR78WC1-8GH1cgrCdjDIt8BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8fjg-t"]
+    entry_1 = ["mag@abc.com", "1", "b1_D2qKfFdM:APA91bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR76WC1-8GH1cgrCdjDIt7BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8fjg-y"]
+    entry_2 = ["meg@def.com", "0", "c0_N1zLfFdM:APA32bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR78WC1-8GH1cgrCdjDIt8BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8fjg-t"]
     entry_3 = ["mig@ghi.com"]
-    entry_4 = ["mog@jkl.com", "d3_B4mJfFdM:APA32bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR78WC1-8GH1cgrCdjDIt8BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8bke-m"]
+    entry_4 = ["mog@jkl.com", "1", "d3_B4mJfFdM:APA32bGUvD0qnBQ9hf4NtJHkuWBBvzHM3mYddRunvGOwgdCLEu0h3EQJF_f9mND7WkxUBR78WC1-8GH1cgrCdjDIt8BzHu9qx7_FLiQSpSvwfzxXfsqaeiqh3r7y30IVwRP5ic8bke-m"]
     entry_5 = ["mug@mno.com"]
 
     # aggregate entry data into multi-dimensional array for iteration
@@ -39,16 +39,17 @@ def seed_table()
 
       # initialize variables for SQL insert statements
       v_email = entry[0]
-      v_fcm_id = entry[1]
+      v_pne_status = entry[1]
+      v_fcm_id = entry[2]
 
       # prepare SQL statement to insert entry data into tokens table
       conn.prepare('q_statement',
-                   "insert into tokens (id, email, fcm_id)
-                    values($1, $2, $3)")  # bind parameters
+                   "insert into tokens (id, email, pne_status, fcm_id)
+                    values($1, $2, $3, $4)")  # bind parameters
 
       # execute prepared SQL statement
       conn.exec_prepared('q_statement',
-                         [v_id, v_email, v_fcm_id])
+                         [v_id, v_email, v_pne_status, v_fcm_id])
 
       # deallocate prepared statement variable (avoid error "prepared statement already exists")
       conn.exec("deallocate q_statement")
@@ -70,3 +71,5 @@ def seed_table()
   end
 
 end
+
+seed_table()

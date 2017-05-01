@@ -15,12 +15,14 @@
       <t>
         <td class="header">ID</td>
         <td class="header">Email</td>
+        <td class="header">PNE Status</td>
         <td class="header">Firebase Token</td>
       </tr>
       <% records.each do |record_hash| %>
       <tr>
         <td><%= record_hash["id"] %></td>
         <td><%= record_hash["email"] %></td>
+        <td><%= record_hash["pne_status"] %></td>
         <td><%= record_hash["fcm_id"] %></td>
       </tr>
       <% end %>
